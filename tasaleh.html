@@ -1,1 +1,160 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل طلب التصالح - مركز نبروه</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 6px solid #0b294d;
+    }
+
+    /* أزرار التحكم العلوية */
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      text-decoration: none;
+      color: #0b294d;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* زرار تحميل الـ PDF السحري */
+    .pdf-btn {
+      background-color: #d9534f; /* لون أحمر مميز للـ PDF */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .pdf-btn:hover {
+      background-color: #c9302c;
+    }
+
+    h1 {
+      color: #0b294d;
+      font-size: 26px;
+      margin-top: 0;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b294d;
+      margin: 25px 0 12px 0;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: #d4af37;
+      margin-top: 5px;
+    }
+
+    ul, ol {
+      padding-right: 25px;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* 🖨️ تنسيق خاص بالطباعة وحفظ الـ PDF (مهم جداً) */
+    @media print {
+      body {
+        background-color: #fff;
+        color: #000;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
+      /* إخفاء الأزرار أثناء حفظ الـ PDF عشان ما تطلعش في الورقة */
+      .top-actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="top-actions">
+      <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+      <button class="pdf-btn" onclick="window.print()">
+        <span>📄</span> حفظ الدليل كـ PDF / طباعة
+      </button>
+    </div>
+
+    <h1>طلب التصالح في مخالفات البناء</h1>
+
+    <div class="section-title">المستندات والأوراق المطلوبة</div>
+    <ul>
+      <li>صورة بطاقة الرقم القومي لمقدم الطلب (سارية).</li>
+      <li>المستند الدال على تاريخ المخالفة (تقرير معاينة، محضر مخالفة، إلخ).</li>
+      <li>المستندات الدالة على صفة مقدم الطلب بالنسبة للعقار (عقد ملكية مسجل أو ابتدائي).</li>
+      <li>نسختان من الرسومات المعمارية للعقار القائم على الطبيعة معتمدتان من مهندس نقابي.</li>
+      <li>تقرير هندسي عن السلامة الإنشائية للمبنى من مكتب استشاري أو مهندس نقابي.</li>
+      <li>إيصال سداد رسم الفحص وجدية التصالح.</li>
+    </ul>
+
+    <div class="section-title">خطوات وإجراءات التقديم</div>
+    <ol>
+      <li>التوجه للمركز التكنولوجي لخدمة المواطنين برئاسة المركز أو التقديم عبر بوابة خدمات المحليات.</li>
+      <li>سداد رسم الفحص ومبلغ جدية التصالح طبقاً للمساحة المحددة.</li>
+      <li>استلام شهادة تفيد تقديم طلب التصالح لوقف أي إجراءات قانونية مؤقتاً.</li>
+      <li>معاينة اللجنة الفنية المختصة للموقع للتأكد من السلامة والمطابقة.</li>
+      <li>في حال الموافقة، يتم سداد القيمة المقررة للمتر أو تقسيطها واستلام قرار قبول التصالح النهائي.</li>
+    </ol>
+
+    <div class="section-title">ملاحظات عامة وعجلة الرسوم</div>
+    <ul>
+      <li>الرسوم تختلف وتحدد بدقة بناءً على مساحة المخالفة، وموقع العقار (قرية أم مدينة)، ونوع النشاط (سكني، تجاري، إداري).</li>
+      <li>يُنصح بالاحتفاظ بصورة من كافة الإيصالات والشهادات المسلّمة من المركز التكنولوجي.</li>
+    </ul>
+
+  </div>
+
+</body>
+</html>
