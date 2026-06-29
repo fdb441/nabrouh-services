@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الخدمات الإلكترونية - رئاسة مركز ومدينة نبروه</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* الهيدر والبانر */
+    .header-banner {
+      background-color: #0b294d;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-banner h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .header-banner p {
+      margin: 10px 0 0 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* حاوية الكروت */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      width: 280px;
+      padding: 25px 20px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid #eef2f5;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(11, 41, 77, 0.15);
+      border-color: #0b294d;
+    }
+
+    .icon-container {
+      width: 70px;
+      height: 70px;
+      background: #f0f4f8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .icon-container span {
+      font-size: 32px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b294d;
+      margin: 10px 0;
+    }
+
+    .card-description {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .card-btn {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0b294d;
+      background: transparent;
+      border: 2px solid #0b294d;
+      padding: 6px 18px;
+      border-radius: 20px;
+    }
+
+    .service-card:hover .card-btn {
+      background: #0b294d;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>بوابة الخدمات الإلكترونية</h1>
+    <p>رئاسة مركز ومدينة نبروه</p>
+  </div>
+
+  <div class="cards-container">
+    <!-- كارت تراخيص البناء -->
+    <a href="building-licenses.html" class="service-card">
+      <div class="icon-container"><span>🏢</span></div>
+      <div class="card-title">تراخيص البناء</div>
+      <div class="card-description">دليلك لمعرفة الأوراق المطلوبة، الرسوم، والخطوات اللازمة لاستخراج تراخيص البناء والترميم.</div>
+      <div class="card-btn">دخول الخدمة</div>
+    </a>
+
+    <!-- يمكنك إضافة كروت أخرى هنا بنفس الطريقة -->
+  </div>
+
+</body>
+</html>
