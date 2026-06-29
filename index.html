@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بوابة الخدمات الإلكترونية - رئاسة مركز ومدينة نبروه</title>
+  <title>بوابة الخدمات الإلكترونية - رئاسة micro ومدينة نبروه</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
@@ -14,25 +14,54 @@
       padding: 0;
     }
 
+    /* الهيدر الجديد المدمج فيه صورتك الخاصة */
     .header-banner {
-      background: linear-gradient(135deg, #0b294d 0%, #153b66 100%);
+      background: url('banner.jpg') no-repeat center center;
+      background-size: cover;
       color: white;
       text-align: center;
-      padding: 50px 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-bottom: 4px solid #d4af37;
+      padding: 85px 20px; /* مساحة مناسبة لإظهار تفاصيل الصورة المرفوعة */
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-bottom: 5px solid #d4af37; /* الخط الذهبي المميز */
     }
 
-    .header-banner h1 { margin: 0; font-size: 32px; }
-    .header-banner p { margin: 10px 0 0 0; font-size: 18px; opacity: 0.9; }
+    /* طبقة تعتيم خفيفة تفوق الصورة عشان الكلام الأبيض يظهر بوضوح تام وقابل للقراءة */
+    .header-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(11, 41, 77, 0.45); /* تعتيم أزرق خفيف */
+      z-index: 1;
+    }
+
+    .header-banner h1, .header-banner p {
+      position: relative;
+      z-index: 2; /* إظهار النصوص فوق طبقة التعتيم */
+      margin: 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6); /* ظل خلف الخط لزيادة الوضوح */
+    }
+
+    .header-banner h1 { 
+      font-size: 34px; 
+      font-weight: 700;
+    }
+    
+    .header-banner p { 
+      margin-top: 12px; 
+      font-size: 19px; 
+      opacity: 0.95; 
+    }
 
     .menu-container {
       max-width: 800px;
-      margin: 50px auto;
+      margin: 45px auto;
       padding: 0 20px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      position: relative;
+      z-index: 3;
     }
 
     /* تصميم أزرار الخدمات الكبيرة */
@@ -41,10 +70,10 @@
       align-items: center;
       justify-content: space-between;
       background: #ffffff;
-      padding: 20px 30px;
+      padding: 22px 30px;
       border-radius: 15px;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       border: 1px solid #eef2f5;
       transition: all 0.3s ease;
     }
@@ -52,7 +81,7 @@
     .service-btn:hover {
       transform: scale(1.02);
       border-color: #0b294d;
-      box-shadow: 0 6px 20px rgba(11, 41, 77, 0.1);
+      box-shadow: 0 6px 22px rgba(11, 41, 77, 0.12);
     }
 
     .btn-content {
@@ -64,8 +93,8 @@
     .btn-icon {
       font-size: 28px;
       background: #f0f4f8;
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,6 +112,15 @@
       color: #0b294d;
       font-weight: bold;
     }
+
+    /* توافق شاشات الموبايل الصغير */
+    @media (max-width: 600px) {
+      .header-banner { padding: 60px 15px; }
+      .header-banner h1 { font-size: 26px; }
+      .header-banner p { font-size: 16px; }
+      .service-btn { padding: 18px 20px; }
+      .btn-title { font-size: 17px; }
+    }
   </style>
 </head>
 <body>
@@ -93,6 +131,7 @@
   </div>
 
   <div class="menu-container">
+    
     <a href="tasaleh.html" class="service-btn">
       <div class="btn-content">
         <div class="btn-icon">📝</div>
@@ -124,6 +163,7 @@
       </div>
       <div class="btn-arrow">←</div>
     </a>
+    
   </div>
 
 </body>
