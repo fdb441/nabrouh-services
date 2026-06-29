@@ -5,429 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بوابة الخدمات الإلكترونية - رئاسة مركز ومدينة نبروه</title>
   <style>
-    /* استيراد خط كايرو الاحترافي للمواقع الرسمية */
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
-
-    :root {
-      --primary-color: #0b294d; /* أزرق الشعار الرسمي */
-      --secondary-color: #d4af37; /* ذهبي للهوية البصرية */
-      --text-color: #333;
-      --bg-color: #f4f7f6;
-    }
 
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: var(--bg-color);
+      background-color: #f4f7f6;
       margin: 0;
       padding: 0;
-      color: var(--text-color);
     }
 
-    /* الهيدر والبانر الرئيسي */
     .header-banner {
       background: linear-gradient(135deg, #0b294d 0%, #153b66 100%);
       color: white;
       text-align: center;
       padding: 50px 20px;
-      position: relative;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #d4af37;
     }
 
-    .header-banner h1 {
-      margin: 0;
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
+    .header-banner h1 { margin: 0; font-size: 32px; }
+    .header-banner p { margin: 10px 0 0 0; font-size: 18px; opacity: 0.9; }
 
-    .header-banner p {
-      margin: 12px 0 0 0;
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    .header-banner::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--secondary-color);
-    }
-
-    /* حاوية الخدمات الرئيسية */
-    .services-container {
-      max-width: 1000px;
-      margin: 40px auto;
+    .menu-container {
+      max-width: 800px;
+      margin: 50px auto;
       padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    /* كارت الخدمة (الرأس القابل للضغط) */
-    .service-item {
-      background: #ffffff;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-      border: 1px solid #eef2f5;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .service-header {
-      padding: 22px 25px;
+    /* تصميم أزرار الخدمات الكبيرة */
+    .service-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      cursor: pointer;
-      user-select: none;
-      background: #fff;
-      transition: background 0.3s ease;
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 15px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      border: 1px solid #eef2f5;
+      transition: all 0.3s ease;
     }
 
-    .service-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(11, 41, 77, 0.08);
-      border-color: var(--primary-color);
+    .service-btn:hover {
+      transform: scale(1.02);
+      border-color: #0b294d;
+      box-shadow: 0 6px 20px rgba(11, 41, 77, 0.1);
     }
 
-    .service-info {
+    .btn-content {
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    .service-icon {
-      width: 55px;
-      height: 55px;
+    .btn-icon {
+      font-size: 28px;
       background: #f0f4f8;
-      border-radius: 50%;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
-      transition: all 0.3s ease;
+      border-radius: 50%;
     }
 
-    .service-title {
+    .btn-title {
       font-size: 20px;
       font-weight: 700;
-      color: var(--primary-color);
+      color: #0b294d;
     }
 
-    /* سهم المؤشر للتوسيع */
-    .arrow-icon {
-      font-size: 18px;
-      color: #999;
-      transition: transform 0.3s ease;
-    }
-
-    /* حالة الفتح والتفاعل للعنوان */
-    .service-item.active .service-header {
-      background: #f8fafc;
-    }
-    .service-item.active .service-icon {
-      background: var(--primary-color);
-      color: white;
-    }
-    .service-item.active .arrow-icon {
-      transform: rotate(180deg);
-      color: var(--primary-color);
-    }
-
-    /* محتوى الخدمة الداخلي (مخفي أوتوماتيكياً) */
-    .service-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease-out;
-      background: #ffffff;
-      border-top: 1px solid #f1f5f9;
-    }
-
-    .content-body {
-      padding: 30px;
-      border-bottom: 4px solid #f8fafc;
-    }
-
-    /* تنسيق كتل البيانات الداخلية */
-    .section-block {
-      margin-bottom: 25px;
-    }
-
-    .section-block:last-child {
-      margin-bottom: 0;
-    }
-
-    .block-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .block-title::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 16px;
-      background: var(--secondary-color);
-      border-radius: 2px;
-    }
-
-    ul, ol {
-      margin: 0;
-      padding-right: 25px;
-      color: #555;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    /* شارات الرسوم والوقت السريعة */
-    .badge-container {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .info-badge {
-      background: #f0f4f8;
-      color: var(--primary-color);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* التجاوب مع شاشات الموبايل الصغير */
-    @media (max-width: 600px) {
-      .header-banner { padding: 35px 15px; }
-      .header-banner h1 { font-size: 24px; }
-      .header-banner p { font-size: 15px; }
-      .service-header { padding: 15px; }
-      .service-title { font-size: 17px; }
-      .service-icon { width: 45px; height: 45px; font-size: 20px; }
-      .content-body { padding: 20px; }
+    .btn-arrow {
+      font-size: 20px;
+      color: #0b294d;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <!-- البانر العلوي للهوية -->
   <div class="header-banner">
     <h1>بوابة الخدمات الإلكترونية</h1>
     <p>رئاسة مركز ومدينة نبروه</p>
   </div>
 
-  <!-- حاوية الخدمات الرئيسية بتنسيق تفاعلي -->
-  <div class="services-container">
+  <div class="menu-container">
+    <a href="tasaleh.html" class="service-btn">
+      <div class="btn-content">
+        <div class="btn-icon">📝</div>
+        <div class="btn-title">طلب التصالح في مخالفات البناء</div>
+      </div>
+      <div class="btn-arrow">←</div>
+    </a>
 
-    <!-- الخدمة الأولى: التصالح في مخالفات البناء -->
-    <div class="service-item">
-      <div class="service-header">
-        <div class="service-info">
-          <div class="service-icon">📝</div>
-          <div class="service-title">طلب التصالح في مخالفات البناء</div>
-        </div>
-        <div class="arrow-icon">▼</div>
+    <a href="taqneen.html" class="service-btn">
+      <div class="btn-content">
+        <div class="btn-icon">📜</div>
+        <div class="btn-title">طلب تقنين أوضاع أملاك الدولة</div>
       </div>
-      <div class="service-content">
-        <div class="content-body">
-          <div class="section-block">
-            <div class="block-title">المستندات والأوراق المطلوبة</div>
-            <ul>
-              <li>صورة بطاقة الرقم القومي لمقدم الطلب (سارية).</li>
-              <li>المستند الدال على تاريخ المخالفة (تقرير معاينة، محضر مخالفة، إلخ).</li>
-              <li>المستندات الدالة على صفة مقدم الطلب بالنسبة للعقار (عقد ملكية مسجل أو ابتدائي).</li>
-              <li>نسختان من الرسومات المعمارية للعقار القائم على الطبيعة معتمدتان من مهندس نقابي.</li>
-              <li>تقرير هندسي عن السلامة الإنشائية للمبنى من مكتب استشاري أو مهندس نقابي.</li>
-              <li>إيصال سداد رسم الفحص وجدية التصالح.</li>
-            </ul>
-          </div>
-          <div class="section-block">
-            <div class="block-title">خطوات وإجراءات التقديم</div>
-            <ol>
-              <li>التوجه للمركز التكنولوجي لخدمة المواطنين برئاسة المركز أو التقديم عبر بوابة خدمات المحليات.</li>
-              <li>سداد رسم الفحص ومبلغ جدية التصالح طبقاً للمساحة المحددة.</li>
-              <li>استلام شهادة تفيد تقديم طلب التصالح لوقف أي إجراءات قانونية مؤقتاً.</li>
-              <li>معاينة اللجنة الفنية المختصة للموقع للتأكد من السلامة والمطابقة.</li>
-              <li>في حال الموافقة، يتم سداد القيمة المقررة للمتر أو تقسيطها واستلام قرار قبول التصالح النهائي.</li>
-            </ol>
-          </div>
-          <div class="section-block">
-            <div class="block-title">معلومات سريعة</div>
-            <div class="badge-container">
-              <div class="info-badge">⏱️ المدة: خاضع لجدول لجان البت الفنية</div>
-              <div class="info-badge">💵 الرسوم: تحدد حسب المساحة ونوع المخالفة والمنطقة</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="btn-arrow">←</div>
+    </a>
 
-    <!-- الخدمة الثانية: تقنين أملاك الدولة -->
-    <div class="service-item">
-      <div class="service-header">
-        <div class="service-info">
-          <div class="service-icon">📜</div>
-          <div class="service-title">طلب تقنين أوضاع أملاك الدولة</div>
-        </div>
-        <div class="arrow-icon">▼</div>
+    <a href="shops.html" class="service-btn">
+      <div class="btn-content">
+        <div class="btn-icon">🏬</div>
+        <div class="btn-title">ترخيص المحال العامة والتجارية</div>
       </div>
-      <div class="service-content">
-        <div class="content-body">
-          <div class="section-block">
-            <div class="block-title">المستندات والأوراق المطلوبة</div>
-            <ul>
-              <li>صورة بطاقة الرقم القومي لواضع اليد ومقدم الطلب.</li>
-              <li>طلب تقنين الأوضاع معبأ بكافة البيانات الأساسية للعقار وموقعه بدقة.</li>
-              <li>خريطة مساحية محددة للموقع أو كشف مساحي من جهة معتمدة توضح الأبعاد والحدود.</li>
-              <li>أي مستندات دالة على تاريخ وضع اليد ومظاهر الاستقراء (إيصالات مرافق قديمة إن وجدت).</li>
-            </ul>
-          </div>
-          <div class="section-block">
-            <div class="block-title">خطوات وإجراءات التقديم</div>
-            <ol>
-              <li>تقديم الطلب والمرفقات للموظف المختص بإدارة الأملاك بالمركز التكنولوجي.</li>
-              <li>تسجيل الطلب وسداد رسوم الفحص والمعاينة المقررة قانوناً.</li>
-              <li>خروج لجنة المعاينة المختصة لتحديد أبعاد الأرض، ونوع الاستغلال (سكني / تجاري / زراعي).</li>
-              <li>عرض الطلب على لجنة التثمين لتقدير سعر المتر العادل للأرض.</li>
-              <li>توقيع العقود النهائية بعد سداد المبالغ المالية المطلوبة (كاش أو بالتقسيط المقرّر).</li>
-            </ol>
-          </div>
-          <div class="section-block">
-            <div class="block-title">معلومات سريعة</div>
-            <div class="badge-container">
-              <div class="info-badge">⏱️ المدة: تتبع إجراءات لجان التقنين والمحافظة</div>
-              <div class="info-badge">💵 الرسوم: رسوم فحص ومعاينة أولية + قيمة الأرض المقدرة</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="btn-arrow">←</div>
+    </a>
 
-    <!-- الخدمة الثالث: رخص المحلات التجارية -->
-    <div class="service-item">
-      <div class="service-header">
-        <div class="service-info">
-          <div class="service-icon">🏬</div>
-          <div class="service-title">ترخيص المحال العامة والتجارية</div>
-        </div>
-        <div class="arrow-icon">▼</div>
+    <a href="meters.html" class="service-btn">
+      <div class="btn-content">
+        <div class="btn-icon">⚡</div>
+        <div class="btn-title">تركيب العدادات الكودية للمرافق</div>
       </div>
-      <div class="service-content">
-        <div class="content-body">
-          <div class="section-block">
-            <div class="block-title">المستندات والأوراق المطلوبة</div>
-            <ul>
-              <li>صورة بطاقة الرقم القومي للمالك أو المستأجر للمحل.</li>
-              <li>عقد الإيجار (مبين التاريخ وموثق) أو عقد الملكية الخاص بالمحل.</li>
-              <li>صورة من البطاقة الضريبية والسجل التجاري للمنشأة بعد استخراجهما.</li>
-              <li>رسم كروكي هندسي يوضح موقع المحل ومساحته الداخلية بالتفصيل.</li>
-              <li>شهادة صحية للعاملين (خاص بالمحلات التي تقدم أغذية ومشروبات).</li>
-            </ul>
-          </div>
-          <div class="section-block">
-            <div class="block-title">خطوات وإجراءات التقديم</div>
-            <ol>
-              <li>التقدم بالطلب للمركز التكنولوجي لإصدار تراخيص المحلات وفق القانون الجديد.</li>
-              <li>توجيه الطلب لجهات المعاينة والأمن الصناعي والصحة والبيئة للتأكد من الاشتراطات.</li>
-              <li>سداد رسوم المعاينة والتراخيص المقررة بناءً على نوع النشاط والمساحة والموقع.</li>
-              <li>إصدار الرخصة المؤقتة أو الدائمة للمحل فور استكمال الموافقات الرسمية.</li>
-            </ol>
-          </div>
-          <div class="section-block">
-            <div class="block-title">معلومات سريعة</div>
-            <div class="badge-container">
-              <div class="info-badge">⏱️ المدة: إصدار الترخيص خلال 30 لـ 60 يوماً من استيفاء الشروط</div>
-              <div class="info-badge">💵 الرسوم: تحدد بدقة طبقاً لقانون المحال العامة رقم 154</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الخدمة الرابعة: العدادات الكودية -->
-    <div class="service-item">
-      <div class="service-header">
-        <div class="service-info">
-          <div class="service-icon">⚡</div>
-          <div class="service-title">تركيب العدادات الكودية (طلب تصالح المرافق)</div>
-        </div>
-        <div class="arrow-icon">▼</div>
-      </div>
-      <div class="service-content">
-        <div class="content-body">
-          <div class="section-block">
-            <div class="block-title">المستندات والأوراق المطلوبة</div>
-            <ul>
-              <li>صورة بطاقة الرقم القومي لطالب التركيب سارية المفعول.</li>
-              <li>عقد ملكية أو عقد إيجار موثق للوحدة السكنية أو التجارية المراد توصيل المرفق لها.</li>
-              <li>صورة واضحة لواجهة المبنى تظهر مكان تركيب العدادات المقترح.</li>
-              <li>إيصال سداد ممارسة الكهرباء الأخير أو محضر ضبطية قضائية ساري (إن وجد).</li>
-            </ul>
-          </div>
-          <div class="section-block">
-            <div class="block-title">خطوات وإجراءات التقديم</div>
-            <ol>
-              <li>يتم التقديم إلكترونياً عبر المنصة الموحدة لخدمات الكهرباء أو عبر شباك خدمة المرافق بالمركز التكنولوجي.</li>
-              <li>رفع الأوراق والمستندات المطلوبة بدقة وتحديد نوع العقار والموقع.</li>
-              <li>خروج الفني المختص من هندسة الكهرباء لعمل المعاينة وقياس الأحمال والمقايسة المالية.</li>
-              <li>سداد قيمة المقايسة المقررة لتركيب العداد الكودي السلكي أو الذكي.</li>
-              <li>التوجه لتركيب العداد وضبط المنظومة لإنهاء نظام الممارسات العشوائية.</li>
-            </ol>
-          </div>
-          <div class="section-block">
-            <div class="block-title">معلومات سريعة</div>
-            <div class="badge-container">
-              <div class="info-badge">⏱️ المدة: من أسبوعين لـ 4 أسابيع بعد سداد المقايسة الماليّة</div>
-              <div class="info-badge">💵 الرسوم: تعتمد على قدرة العداد ونوع المقايسة الإنشائية للمبنى</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+      <div class="btn-arrow">←</div>
+    </a>
   </div>
-
-  <!-- كود الجافا سكريبت لتأمين فتح وإغلاق الكروت بسلاسة تامة -->
-  <script>
-    const serviceHeaders = document.querySelectorAll('.service-header');
-
-    serviceHeaders.forEach(header => {
-      header.addEventListener('click', function() {
-        const item = this.parentElement;
-        const content = this.nextElementSibling;
-        
-        // غلق أي أقسام أخرى مفتوحة لتظل الصفحة ملمومة (اختياري)
-        document.querySelectorAll('.service-item').forEach(otherItem => {
-          if (otherItem !== item && otherItem.classList.contains('active')) {
-            otherItem.classList.remove('active');
-            otherItem.querySelector('.service-content').style.maxHeight = null;
-          }
-        });
-
-        // تبديل حالة القسم الحالي
-        item.classList.toggle('active');
-        
-        if (item.classList.contains('active')) {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } else {
-          content.style.maxHeight = null;
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
