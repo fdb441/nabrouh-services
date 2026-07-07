@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بوابة الخدمات الإلكترونية - رئاسة مركز ومدينة نبروه</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700&display=swap');
 
     body {
       font-family: 'Cairo', sans-serif;
@@ -14,15 +14,14 @@
       padding: 0;
     }
 
-    /* الهيدر الجديد الصافي لعرض صورتك فقط */
+    /* الهيدر الصافي لعرض صورتك المصممة بالكامل */
     .header-banner {
       background: url('banner.jpg') no-repeat center center;
       background-size: cover;
       width: 100%;
-      /* ضبط نسبة الارتفاع والعرض لتتوافق مع أبعاد البانر التصميمي على الموبايل والكمبيوتر */
       aspect-ratio: 1920 / 650; 
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      border-bottom: 5px solid #d4af37; /* الخط الذهبي متناسق مع تصميمك */
+      border-bottom: 5px solid #d4af37; /* الخط الذهبي */
     }
 
     .menu-container {
@@ -93,13 +92,10 @@
 </head>
 <body>
 
-  <!-- هيدر نظيف يعرض صورتك المصممة بالكامل بدون أي نصوص برمجية فوقها -->
   <div class="header-banner"></div>
 
-  <!-- قائمة أزرار الخدمات المربوطة بالصفحات الفرعية -->
   <div class="menu-container">
     
-    <!-- زرار طلبات التصالح -->
     <a href="tasaleh.html" class="service-btn">
       <div class="btn-content">
         <div class="btn-icon">📝</div>
@@ -108,7 +104,6 @@
       <div class="btn-arrow">←</div>
     </a>
 
-    <!-- زرار تقنين أملاك الدولة -->
     <a href="taqneen.html" class="service-btn">
       <div class="btn-content">
         <div class="btn-icon">📜</div>
@@ -117,7 +112,6 @@
       <div class="btn-arrow">←</div>
     </a>
 
-    <!-- زرار رخص المحلات -->
     <a href="shops.html" class="service-btn">
       <div class="btn-content">
         <div class="btn-icon">🏬</div>
@@ -126,13 +120,20 @@
       <div class="btn-arrow">←</div>
     </a>
 
-    <!-- زرار العدادات الكودية -->
     <a href="meters.html" class="service-btn">
       <div class="btn-content">
         <div class="btn-icon">⚡</div>
         <div class="btn-title">تركيب العدادات الكودية للمرافق</div>
       </div>
       <div class="btn-arrow">←</div>
+    </a>
+
+    <a href="contact.html" class="service-btn" style="border-color: #25D366; background: #f9fffb;">
+      <div class="btn-content">
+        <div class="btn-icon" style="background: #e8fced;">📞</div>
+        <div class="btn-title" style="color: #1ea851;">التواصل والشكاوى والمقترحات</div>
+      </div>
+      <div class="btn-arrow" style="color: #1ea851;">←</div>
     </a>
     
   </div>
