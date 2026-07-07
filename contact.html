@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا - مركز نبروه</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+    
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 6px solid #25D366; /* لون الواتساب المميز */
+      text-align: center;
+    }
+
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #0b294d;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 25px;
+      float: right;
+    }
+
+    .clearfix { clear: both; }
+
+    h1 {
+      color: #0b294d;
+      font-size: 26px;
+      margin-top: 10px;
+    }
+
+    p.subtitle {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
+
+    /* 🟢 تصميم زرار الواتساب الكبير والمتحرك */
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 20px 35px;
+      border-radius: 50px;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite; /* أنيميشن النبض لشد الانتباه */
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #20ba5a;
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-icon {
+      font-size: 30px;
+    }
+
+    /* حركة نبض ذكية للزرار */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .info-box {
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid #eef2f5;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+    <div class="clearfix"></div>
+
+    <h1>التواصل والشكاوى والمقترحات</h1>
+    <p class="subtitle">أهلاً بك في منظومة خدمة المواطنين برئاسة مركز ومدينة نبروه. اضغط على الزرار بالأسفل لفتح محادثة مباشرة معنا لعرض شكوتك أو مقترحك.</p>
+
+    <a href="https://wa.me/201029306369?text=السلام%20عليكم%20ورحمة%20الله%20وبركاته،%20عندي%20استفسار/شكوى%20بخصوص%20الخدمات%20الإلكترونية" target="_blank" class="whatsapp-btn">
+      <span class="whatsapp-icon">💬</span>
+      <span>تواصل معنا عبر واتساب</span>
+    </a>
+
+    <div class="info-box">
+      <p>يرجى إرسال الاسم الثلاثي وتفاصيل الطلب لسرعة الرد والمتابعة.</p>
+    </div>
+  </div>
+
+</body>
+</html>
